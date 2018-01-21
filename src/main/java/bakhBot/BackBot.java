@@ -79,7 +79,7 @@ public class BackBot extends TelegramLongPollingBot {
 
     private void sendDoc(SendDocument sendDoc) {
         try {
-            System.out.println("отправляем файл" + sendDoc.toString());
+            System.out.println("sending file" + sendDoc.toString());
             sendDocument(sendDoc);
         } catch (TelegramApiException e) {
             e.printStackTrace();
