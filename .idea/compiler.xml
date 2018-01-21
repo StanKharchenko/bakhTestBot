@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="bakhBot" target="1.6" />
       <module name="bakhTestBot" target="1.8" />
     </bytecodeTargetLevel>
   </component>
