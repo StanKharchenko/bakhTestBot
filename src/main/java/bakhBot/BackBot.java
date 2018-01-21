@@ -21,7 +21,7 @@ public class BackBot extends TelegramLongPollingBot {
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
         try {
             telegramBotsApi.registerBot(new BackBot());
-            System.out.println("Бот стартовал");
+            System.out.println("Bot started");
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
@@ -56,7 +56,7 @@ public class BackBot extends TelegramLongPollingBot {
         outSendDoc.setNewDocument(file);
         outSendDoc.setChatId(msg.getChatId());
         if (txt.equals("/start")) {
-        sendMsg(msg, "Привет!");
+        sendMsg(msg, "Hi!");
             sendDoc(outSendDoc);
         }
 
