@@ -9,7 +9,6 @@ import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
-import java.io.File;
 import java.util.List;
 
 /**
@@ -37,13 +36,13 @@ public class BackBot extends TelegramLongPollingBot {
         Message msg = updates.get(0).getMessage();
         String txt = msg.getText();
         System.out.println(txt);
-        SendDocument outSendDoc = new SendDocument();
-        File file = new File("c:\\temp\\New_Blank_Document.pdf");
-        outSendDoc.setNewDocument(file);
-        outSendDoc.setChatId(msg.getChatId());
+//        SendDocument outSendDoc = new SendDocument();
+//        File file = new File("c:\\temp\\New_Blank_Document.pdf");
+//        outSendDoc.setNewDocument(file);
+//        outSendDoc.setChatId(msg.getChatId());
         if (txt.equals("/start")) {
-        sendMsg(msg, "Hi!");
-            sendDoc(outSendDoc);
+            sendMsg(msg, "Hi!");
+//          sendDoc(outSendDoc);
         }
 
     }
