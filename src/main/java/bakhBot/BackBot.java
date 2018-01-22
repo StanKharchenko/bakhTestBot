@@ -29,20 +29,6 @@ public class BackBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        Message msg = update.getMessage();
-        String txt = msg.getText();
-        System.out.println(txt);
-//        SendDocument outSendDoc = new SendDocument();
-//        File file = new File("c:\\temp\\New_Blank_Document.pdf");
-//        outSendDoc.setNewDocument(file);
-//        if (txt.equals("/start")) {
-            sendMsg(msg, "Hello, world! This is simple bot!");
-//            sendDoc(outSendDoc);
-//        }
-//        Message outMsg = new Message();
-//        SendMessage tSendMsg = new SendMessage();
-//        Document outDoc = new Document();
-
 
     }
 
