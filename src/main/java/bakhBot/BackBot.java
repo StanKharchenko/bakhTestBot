@@ -1,7 +1,5 @@
 package bakhBot;
 
-import org.telegram.telegrambots.ApiContextInitializer;
-import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.api.methods.send.SendDocument;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
@@ -15,16 +13,20 @@ import java.util.List;
  * Created by Stan on 21.01.2018.
  */
 public class BackBot extends TelegramLongPollingBot {
-    public static void main(String[] args) {
-        ApiContextInitializer.init();
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
-        try {
-            telegramBotsApi.registerBot(new BackBot());
-            System.out.println("Bot started");
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
+    private CustomerRepository repository;
+    public BackBot(CustomerRepository repository) {
+        this.repository = repository;
     }
+//    public static void main(String[] args) {
+//        ApiContextInitializer.init();
+//        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
+//        try {
+//            telegramBotsApi.registerBot(new BackBot());
+//            System.out.println("Bot started");
+//        } catch (TelegramApiException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -40,10 +42,24 @@ public class BackBot extends TelegramLongPollingBot {
 //        File file = new File("c:\\temp\\New_Blank_Document.pdf");
 //        outSendDoc.setNewDocument(file);
 //        outSendDoc.setChatId(msg.getChatId());
+        if(txt == null){
+            sendMsg(msg,"WTF!?");
+            return;
+        }
         if (txt.equals("/start")) {
+
             sendMsg(msg, "Hi!");
+            return;
 //          sendDoc(outSendDoc);
         }
+        if (txt.equals("/test")) {
+            Customer one = repository.findAll().iterator().next();
+            sendMsg(msg, one.getFirstName());
+            return;
+//          sendDoc(outSendDoc);
+        }
+        sendMsg(msg, txt);
+
 
     }
 
